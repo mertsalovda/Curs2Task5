@@ -1,11 +1,12 @@
 package com.elegion.recyclertest.loaders;
 
+import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.support.v4.content.AsyncTaskLoader;
+//import android.support.v4.content.AsyncTaskLoader;
 
 public class MyATLoader extends AsyncTaskLoader<String> {
 
@@ -14,6 +15,12 @@ public class MyATLoader extends AsyncTaskLoader<String> {
     public MyATLoader(Context context, String id) {
         super(context);
         this.id = id;
+    }
+
+    @Override
+    protected void onStartLoading() {
+        super.onStartLoading();
+        forceLoad();
     }
 
     @Override
@@ -30,7 +37,6 @@ public class MyATLoader extends AsyncTaskLoader<String> {
             String number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
             cursor.close();
 
-//            startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:" + number)));
             return number;
         }
 
