@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RecyclerTest</string>
     <string name="error_text">Что-то пошло не так. Попробуйте еще раз.</string>
+    <string name="stop_loader_text">Stop Loader</string>
+    <string name="txt_error_number_empty">Error: number is empty!</string>
+    <string name="txt_request_canceled">Запрос отменён</string>
 </resources>
